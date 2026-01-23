@@ -14,10 +14,10 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION
 
-			--Блокируем строку для обновления
+			--Р‘Р»РѕРєРёСЂСѓРµРј СЃС‚СЂРѕРєСѓ РґР»СЏ РѕР±РЅРѕРІР»РµРЅРёСЏ
 			UPDATE Books WITH(UPDLOCK, ROWLOCK)
 			SET 
-				--Если null оставляем предыдущее значение
+				--Р•СЃР»Рё null РѕСЃС‚Р°РІР»СЏРµРј РїСЂРµРґС‹РґСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ
 				Name = ISNULL(@Name, Name),
 				Author = ISNULL(@Author, Author),
 				Year = ISNULL(@Year, Year),
@@ -26,7 +26,7 @@ BEGIN
 			WHERE Id = @Id
 
 			IF @@ROWCOUNT = 0
-				RAISERROR('Книга с Id: %d', 16, 1, @Id)
+				RAISERROR('ГЉГ­ГЁГЈГ  Г± Id: %d', 16, 1, @Id)
 
 		COMMIT TRANSACTION
 	END TRY
