@@ -1,0 +1,55 @@
+﻿@model BookDetails
+
+<a class="btn btn-primary fw-bold fs-5 mb-4" href="/Home">Назад</a>
+
+@using (Html.BeginForm("EditPOST", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Author)
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category)
+        @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Year)
+        @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Contents)
+        @Html.TextAreaFor(m => m.Contents, new { @class = "form-control", @id = "editor" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+}
+
+<a asp-controller="Home" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Удалить</a>
+
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    <script>
+
+        CKEDITOR.replace('editor', {
+            toolbar: [
+                ['Bold', 'Italic', 'Underline', 'Strike'], // 4 кнопки
+                ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'], // списки и отступы
+                ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'], // выравнивание
+                ['Link', 'Unlink'], // ссылки и изображение
+                ['Format', 'RemoveFormat', 'Source'] // стили, очистка, код
+            ]
+        });
+    </script>
+}

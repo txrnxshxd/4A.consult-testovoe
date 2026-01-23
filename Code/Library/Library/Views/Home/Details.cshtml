@@ -1,0 +1,18 @@
+﻿@model BookDetails
+
+<a class="btn btn-primary fw-bold fs-5 mb-4" href="/Home">Назад</a>
+
+<div class="container">
+    <p class="h1 text-uppercase">
+        <span class="fw-light">@Model.Author </span>
+        @Model.Name 
+        <span class="fw-light">(@Model.Year г.)</span>
+    </p>
+    <p class="fs-3">@Model.Category</p>
+</div>
+<div class="container border-2 border-dark border p-5">
+    <div class="row mx-auto col-md-2 mb-5">
+        <p class="h3 text-uppercase">Оглавление</p>
+    </div>
+    @Html.Raw(Model.Contents)
+</div>

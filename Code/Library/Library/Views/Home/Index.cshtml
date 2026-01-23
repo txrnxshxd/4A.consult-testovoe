@@ -1,0 +1,53 @@
+﻿
+@model BooksPagination
+
+<a class="btn btn-primary fw-bold fs-5 mb-4" href="Home/Insert">Добавить книгу</a>
+
+<div class="text-center">
+    <table class="table table-hover table-bordered table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Название книги</th>
+                <th scope="col">Автор</th>
+                <th scope="col">Категория</th>
+                <th scope="col">Год издания</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <th>@book.Id</th>
+                    <td>@book.Name</td>
+                    <td>@book.Author</td>
+                    <td>@book.Category</td>
+                    <td>@book.Year</td>
+                    <td><a class="btn btn-primary" asp-controller="Home" asp-action="Details" asp-route-id="@book.Id">Подробнее</a></td>
+                    <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@book.Id">Редактировать</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <ul class="nav nav-pills justify-content-center ">
+        @for(int i = 1; i < Model.Pages + 1; i++)
+        {
+            if (i == ViewBag.Page)
+            {
+                <li class="nav-item">
+                    <a class="nav-link active disabled" aria-current="page" asp-controller="Home" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+        }
+    </ul>
+
+</div>
