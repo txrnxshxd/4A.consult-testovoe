@@ -10,7 +10,7 @@ BEGIN
 			DELETE FROM Books WITH(UPDLOCK, ROWLOCK) WHERE Id = @Id
 
 			IF @@ROWCOUNT = 0
-				RAISERROR('Запись с Id: %d не найдена', 16, 1, @Id)
+				RAISERROR('Р—Р°РїРёСЃСЊ СЃ Id: %d РЅРµ РЅР°Р№РґРµРЅР°', 16, 1, @Id)
 
 		COMMIT TRANSACTION
 	END TRY
