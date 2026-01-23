@@ -1,0 +1,14 @@
+﻿<data>
+  <row>
+    <Id>1</Id>
+    <Code>SBR003-202001</Code>
+    <Name>Конкурс СМСП</Name>
+    <StatusId>45</StatusId>
+  </row>
+  <row>
+    <Id>2</Id>
+    <Code>SBR003-202002</Code>
+    <Name>Запрос предложений</Name>
+    <StatusId>2</StatusId>
+  </row>
+</data>

@@ -1,0 +1,9 @@
+CREATE OR ALTER PROCEDURE dbo.sp_SelectOne(@Id INT)
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT * 
+	FROM Books 
+	WHERE Id = @Id
+END
+GO
